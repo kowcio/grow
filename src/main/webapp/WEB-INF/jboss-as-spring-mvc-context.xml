@@ -16,15 +16,25 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+    <!-- controllers -->
     <context:component-scan base-package="grow.controllers" />
 
 
+    <!--  DATABASE INIT CLASS WITH DB CONFIG     -->
+     <bean name="DBConfig" class="grow.config.DBConfig" init-method="init" lazy-init="false"/>
+        <!--  validator  -->
+    <bean id="validator"
+        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+    
 
 
+    <!-- Custom validation messages in file validationMassages.properties -->
+    <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/properties/validationMessages" />
+    </bean>
 
 
-
-	<context:component-scan base-package="org.jboss.tools.example.springmvc.mvc"/>
 
 	<mvc:annotation-driven />
 
