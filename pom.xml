@@ -251,12 +251,12 @@
         </dependency>
 
 	    <!-- Needed for running tests (you may also use TestNG) -->
-	    <dependency>
-	    	<groupId>junit</groupId>
-	    	<artifactId>junit</artifactId>
-	    	<version>4.8.2</version>
-	    	<scope>test</scope>
-	    </dependency>
+        <!-- junit.org cause framework is depracated -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
 
 
 		<!-- Add cglib for the MemberDaoTest -->
