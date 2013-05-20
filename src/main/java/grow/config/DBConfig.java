@@ -49,7 +49,7 @@ public class DBConfig {
 	
 	  
 		 boolean noDB = false;
-		 //dwa du¿e bloki - brak pomylek z nazwa zmnienncyh
+		 //dwa dbloki - brak pomylek z nazwa zmnienncyh
 		 if (noDB==false){
 		 	//default try to connect todefault database 
 			Configuration configuration = new Configuration();
@@ -74,7 +74,7 @@ public class DBConfig {
 			}
 	        
 	        if ( postNo == 0 || noDB==true ) {
-	        	System.out.println("0 postów w bazie trzeba jakies dodac");
+	        	System.out.println("0 pos w bazie trzeba jakies dodac");
 	        	Post post1 = Post.getNewPost("Default Title 1", "Default Value 1");
 	        	postdao.savePost(post1);	
 	        	Post post2 = Post.getNewPost("Default Title 2", "Default Value 2");
@@ -83,7 +83,7 @@ public class DBConfig {
 	        	postdao.savePost(post3);
 	        }else
 	        {
-	        	System.out.println("Istnieje "+postNo+ " postów w bazie");
+	        	System.out.println("Istnieje "+postNo+ " posw bazie");
 	        }
 	        
 	        
