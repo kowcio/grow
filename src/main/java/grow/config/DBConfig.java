@@ -101,7 +101,7 @@ public class DBConfig {
 							// add FALSE   to create
 							configuration_newDB.setProperty("hibernate.connection.url",				"jdbc:h2:blogdb;IFEXISTS=FALSE");
 							configuration_newDB.setProperty("hibernate.connection.username", 		"sa");
-							configuration_newDB.setProperty("hibernate.connection.driver_class",	"org.h2.Driver");
+							configuration_newDB.setProperty("hibernate.connection.driver_class",	"com.h2database.h2");
 							configuration_newDB.setProperty("hibernate.connection.password", 		"");
 							configuration_newDB.setProperty("hibernate.current_session_context_class","thread");
 							configuration_newDB.setProperty("hibernate.show_sql", 					"true");
