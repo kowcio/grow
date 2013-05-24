@@ -9,7 +9,7 @@
 	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
  		
 	<property name="driverClassName" value="com.h2database.h2" />
-	<property name="url" value="jdbc:h2:blogdb" />
+	<property name="url" value="java:jboss/datasources/ExampleDS" />
 	<property name="username" value="sa" />
 	<property name="password" value="" />
    </bean>
