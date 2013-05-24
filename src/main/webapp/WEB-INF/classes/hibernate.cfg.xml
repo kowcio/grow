@@ -13,7 +13,7 @@
          -->
          
         <property name="hibernate.connection.url">
-        java:jboss/datasources/ExampleDS;AUTO_SERVER=TRUE;MVCC=TRUE;IFEXISTS=TRUE</property>
+        jdbc:h2:blogdb;AUTO_SERVER=TRUE;MVCC=TRUE;IFEXISTS=TRUE</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
