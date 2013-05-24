@@ -6,7 +6,7 @@
 <!--  no name attribute deletes the invalid JNDI name error -->
     <session-factory>
     <!--  group by properties and subjects as in http://docs.jboss.org/hibernate/orm/3.3/reference/en/html/session-configuration.html#configuration-xmlconfig -->
-        <property name="hibernate.connection.driver_class">h2</property>
+        <property name="hibernate.connection.driver_class">com.h2database.h2</property>
         
         <!--  add at the end for creating the schema, ewentualy look at HibGetDBSession to see how it can bo done alternatively /
          ;INIT=create schema IF NOT EXISTS blogSchema 
