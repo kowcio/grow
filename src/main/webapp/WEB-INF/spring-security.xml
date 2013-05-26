@@ -49,7 +49,7 @@
 		<intercept-url pattern="/index2" access="isAnonymous() or isFullyAuthenticated()" />
 		<intercept-url pattern="/resources/**/**" access="isAnonymous() or isFullyAuthenticated()" />
 			
-        <intercept-url pattern="/**" access="fullyAuthenticated" />
+        <intercept-url pattern="/**" access="isAnonymous() or fullyAuthenticated" />
 		
 		
 		<form-login 
