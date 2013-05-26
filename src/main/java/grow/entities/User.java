@@ -12,6 +12,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.stereotype.Component;
 
+
 /**
  * User Entity class with fields : <br />
  * id, login, passwd, userType, enabled
@@ -72,6 +73,28 @@ public class User {
 	
 	
 	//methods 
+	
+	
+	/**
+	 * * Constructor that sets values for the user object, usage : <br />
+	 * userObjectVar.getCustomUser(set values)
+	 * @param id
+	 * @param u user name
+	 * @param p passwd
+	 * @param ut user type
+	 * @param e enabled int 
+	 * @return user 
+	 */
+	public User getCustomUser(long id, String u, String p, int ut, int e){
+		this.id = id;
+		this.login = u;
+		this.passwd= p;
+		this.userType=ut;
+		this.enabled=e;
+		return this;
+	}
+	
+	
 	
 	/**
 	 * Return string info about user - fields provided etc

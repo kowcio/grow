@@ -1,6 +1,8 @@
 package grow.config;
 
+import grow.daos.HashMachine;
 import grow.daos.PostDAO;
+import grow.daos.UserDAO;
 import grow.entities.Grow;
 import grow.entities.Post;
 import grow.entities.User;
@@ -9,6 +11,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+
 
 /**
  * Class to configure database with basic new data
@@ -129,6 +132,32 @@ public class DBConfig {
 	        
 	 }//end main
 	
+	/**
+	 * Savs the initial Users
+	 * @param sf - Session Factory
+	 * @return "ok"
+	 */
+	
+	public String saveSingleInitialAdminUser( SessionFactory sf){
+		
+    	try {
+    		System.out.println ("Adding default posts.");
+    		UserDAO pdao = new UserDAO();
+			HashMachine hm = new HashMachine();
+
+    		User us1 = new User().getCustomUser(0, "admin", hm.hashThePass_USE_THIS("admin"), 666, 1);
+    		pdao.saveUser(us1);
+    		User us2 = new User().getCustomUser(0, "qwe", hm.hashThePass_USE_THIS("qwe"), 666, 1);
+    		pdao.saveUser(us2);
+    		User us3 = new User().getCustomUser(0, "asd", hm.hashThePass_USE_THIS("asd"), 0, 1);
+    		pdao.saveUser(us3);
+    		
+		} catch (Exception e) {
+			//e.printStackTrace();
+			return "Could not add initial users - blog.config.DBConfig error.";
+		}
+	return "OK";
+	}
 	
 
 }
