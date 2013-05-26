@@ -1,6 +1,7 @@
 package grow.config;
 
 import grow.daos.PostDAO;
+import grow.entities.Grow;
 import grow.entities.Post;
 import grow.entities.User;
 
@@ -54,6 +55,7 @@ public class DBConfig {
 		 	//default try to connect todefault database 
 			Configuration configuration = new Configuration();
 			configuration.addAnnotatedClass(Post.class);
+			configuration.addAnnotatedClass(Grow.class);
 			configuration.addAnnotatedClass(User.class);
 			configuration.configure("hibernatecr8.cfg.xml");
 	        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
@@ -92,29 +94,16 @@ public class DBConfig {
 	        	
 	        if (noDB){
 	        			System.out.println(" NO DATABASE or sth like that ... creating new one.");
-						Configuration configuration_newDB = new Configuration();
-
-							configuration_newDB.addAnnotatedClass(Post.class);
-							configuration_newDB.addAnnotatedClass(User.class);
-							configuration_newDB.setProperty("hibernate.dialect",					"org.hibernate.dialect.H2Dialect");
-							//previous set value ;IFEXISTS=FALSE work on whole db engine 
-							// add FALSE   to create
-							configuration_newDB.setProperty("hibernate.connection.url",				"jdbc:h2:blogdb;IFEXISTS=FALSE");
-							configuration_newDB.setProperty("hibernate.connection.username", 		"sa");
-							configuration_newDB.setProperty("hibernate.connection.driver_class",	"com.h2database.h2");
-							configuration_newDB.setProperty("hibernate.connection.password", 		"");
-							configuration_newDB.setProperty("hibernate.current_session_context_class","thread");
-							configuration_newDB.setProperty("hibernate.show_sql", 					"true");
-							configuration_newDB.setProperty("hibernate.hbm2ddl.auto", 				"create");
-							
+	        			Configuration configuration = new Configuration();
+	        			configuration.addAnnotatedClass(Post.class);
+	        			configuration.addAnnotatedClass(Grow.class);
+	        			configuration.addAnnotatedClass(User.class);
+	        			configuration.configure("hibernate.cfg.xml");
+	        	        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
+	        						configuration.getProperties()).buildServiceRegistry();
+	        	        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+	        	        sessionFactory.openSession();				
 					
-					
-						ServiceRegistry	serviceRegistry_newDb = new ServiceRegistryBuilder().applySettings(
-								configuration_newDB.getProperties()).buildServiceRegistry();
-				
-				        SessionFactory sessionFactory_newDb = configuration_newDB.buildSessionFactory(serviceRegistry_newDb);
-				        sessionFactory_newDb.openSession();
-						
 				        
 						
 				        //adding posts to newly created db
