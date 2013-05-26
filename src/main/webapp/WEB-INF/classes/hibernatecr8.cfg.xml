@@ -12,8 +12,7 @@
          ;INIT=create schema IF NOT EXISTS blogSchema 
          -->
          
-        <property name="hibernate.connection.url">
-         jdbc:mysql:mysql:127.11.110.1:3306:worg</property>
+        <property name="hibernate.connection.url">jdbc:mysql:mysql://127.11.110.1:3306/worg/</property>
         <property name="hibernate.connection.username">sa</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
