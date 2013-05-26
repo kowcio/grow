@@ -29,7 +29,6 @@
   <listener>
 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-<listener><listener-class>grow.config.DBConfig</listener-class></listener>
 
 
   <servlet>
