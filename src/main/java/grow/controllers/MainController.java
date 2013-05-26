@@ -173,7 +173,7 @@ public class MainController {
 			isUserAuth = auth.isAuthenticated();
 		} catch (Exception e) {
 			isUserAuth = false;
-			System.out.println("/ main ctrl "+e.getCause() );
+			System.out.println("/ main ctrl no auth for user"+e.getCause() );
 		}
 		
 	     
