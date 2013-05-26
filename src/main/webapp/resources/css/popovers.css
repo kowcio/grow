@@ -1,0 +1,79 @@
+    
+    
+    /* tooltip / POPOVER  and GRowDescription class */
+    
+#popHelp{
+	position:relative;
+   top:155px!important;
+	margin:-1150px 0px 0px 0px;
+	width:50%;
+	max-width:50%;
+}
+.popHelp .popover-title{
+    max-width:100%!important;    
+    width:100%!important;
+}
+    .popHelp .popover-inner{
+    position:relative;
+    top :0%;
+    left:0%;
+    margin: 0px 0px 0px 0px;
+    margin-right:15%;
+    padding : 0px 0px 0px 0px; 
+}
+
+/* for non logged users */
+#popHelpNoLogin{
+	position:fixed!important;
+	z-index:12000;
+    top:5%!important;
+    width:50%;
+    max-width:50%;
+    left:3%!important;
+    margin:0px 0px 0px 0px !important;  
+    opacity:0.9;  
+}
+/* for g to show lower*/
+#popHelpNoLoginG{
+	top:15%!important;
+}
+#popHelpNoLogin .popover-content .popover-inner{
+    position:fixed!important;
+    z-index:120000;
+    right:10%!important;
+}
+
+/* dialog checking */
+
+
+
+
+
+
+
+.popover center{
+    font-size:16;
+    font-weight:bold;
+}
+.popover table{
+        line-height:125%;
+        margin-left:5%;
+}
+.popover td{
+	margin-left:5%;
+    padding-right:15px;
+    padding-left:15px;
+    font-weight:bold;
+    border-bottom:thin solid black;
+}
+
+
+
+/* for the main page 4 everybody fixed side btns */
+#popHelpMain{
+    position:relative;
+    width:50%;
+    max-width:50%;
+}
+
+    

@@ -1,0 +1,26 @@
+/* imports */
+
+
+   
+   @import url("bootstrap.css");
+   @import url("bootstrap-responsive.css");
+   
+   @import url("jqueryui.css");
+   
+   @import url("header.css");
+   
+
+/* main body for diferent states */
+
+   @import url("main.css");
+   @import url("main4all.css");
+   
+   @import url("footer.css");
+
+   @import url("popovers.css");
+   
+   
+   
+   /* PRINT */
+   @import url("print.css");
+   

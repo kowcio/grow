@@ -1,0 +1,88 @@
+
+
+
+
+    
+    
+    .main4all .item {
+    height: 50%;
+    width:  66%;
+    margin-left:20%;
+    margin : 2% auto 2% 17%;
+    padding:1%;
+    border:1px solid black;
+    border-radius:50px ;  
+    float:both;
+
+    }
+    
+/* BACKGROUNDS */
+     #g1{
+     background:url('../img/bg1.jpg') ;
+     background-size: 100% 100%;
+     background-position: center;
+    }
+     #g2{
+     background:url('../img/bg2.jpg');
+     background-size: 100% 100%;
+     background-position: center;
+     }
+     #g3{
+     background:url('../img/bg3.jpg');
+     background-size: 100% 100%;
+     background-position: center;
+    }
+     #g4{
+     background:url('../img/bg4.jpg') ;
+     background-size: 100% 100%;
+     background-position: center;
+    }
+    
+    
+    
+    textarea {
+    margin: 2% 10% 2% 10%;
+    width:80%;
+    opacity:0.90;
+    font-family:"Times New Roman", Times, serif;
+    font-size:1.5em;
+    font-weight:bolder;
+    
+    }
+    
+    
+
+    /*  help text overflowing the log4all */
+    
+    .sidesText{
+    position:fixed;
+    left:2%;
+    margin-top:0%;
+    width:15%;
+    overflow:hidden;
+    }
+    
+    
+    .sideBtns{
+    position:fixed;
+    right:2%;
+    margin-top:2%;
+    height:40%;
+    width:15%;
+    overflow:hidden;
+    }
+    
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

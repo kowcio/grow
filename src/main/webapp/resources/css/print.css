@@ -1,0 +1,80 @@
+@CHARSET "UTF-8";
+
+
+.printTable{
+    height:80%;
+}
+
+.printTable td{
+	width:50%;
+	padding-bottom:0px;
+}
+
+#print_page{
+	position:relative;
+	left:5%;
+	top:2%;
+    width:90%;
+    max-width:90%;
+}
+.growtext{
+	margin-top:0px;
+	height:50%;
+}
+
+/ * TITLES IN MIDDLE */
+
+h1{
+	
+	
+}
+
+
+
+
+
+
+.challengeName{
+font-weight:bolder;
+font-size:25px;
+float:left;
+}
+.challengeTable{
+	height:4%;
+	float:left;
+	position:relative;
+	margin-top:0.5%;
+	margin-right:3%;
+	left:2%;
+	width:80%;
+}
+.challengeTable td{
+    border:1px solid black;
+    width:3%;
+    height:3%;
+}
+
+
+
+
+
+
+
+
+/* divs with textareas */
+#g1print{
+    
+}
+#g2print{
+    
+}
+#g3print{
+    
+}
+#g4print{
+    
+}
+
+
+
+
