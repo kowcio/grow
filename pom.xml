@@ -13,6 +13,8 @@
     <properties>
                 <!-- Spring version -->
         <version.spring>3.1.1.RELEASE</version.spring>
+        <spring.version>3.2.0.RELEASE</spring.version>
+              <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Spring Third Party dependencies -->
         <version.aopalliance>1.0</version.aopalliance>
@@ -26,280 +28,30 @@
 
     </properties>
 
-    <dependencyManagement>
-
-		<dependencies>
-                        <!-- Define the version of JBoss' Java EE 6 APIs we want to import. Any
-                dependencies from org.jboss.spec will have their version defined by this
-                BOM -->
-            <!-- JBoss distributes a complete set of Java EE 6 APIs including a Bill
-                of Materials (BOM). A BOM specifies the versions of a "stack" (or a collection)
-                of artifacts. We use this here so that we always get the correct versions
-                of artifacts. Here we use the jboss-javaee-web-6.0 stack (you can read this
-                as the JBoss stack of the Java EE Web Profile 6 APIs), and we use version
-                3.0.0.Final which is the latest release of the stack. You can actually use
-                this stack with any version of JBoss AS that implements Java EE 6, not just
-                JBoss AS 7! -->
-            <dependency>
-                <groupId>org.jboss.spec</groupId>
-                <artifactId>jboss-javaee-web-6.0</artifactId>
-                <version>3.0.0.Final</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-                            
-            <!-- Spring dependencies -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-aop</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-asm</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context-support</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-expression</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-jdbc</artifactId>
-                <version>${version.spring}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-orm</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-            	<groupId>org.springframework</groupId>
-            	<artifactId>spring-test</artifactId>
-            	<version>${version.spring}</version>
-            	<scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-tx</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-webmvc</artifactId>
-                <version>${version.spring}</version>
-            </dependency>
-
-            <!-- Third Party dependencies -->
-            <dependency>
-                <groupId>aopalliance</groupId>
-                <artifactId>aopalliance</artifactId>
-                <version>${version.aopalliance}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>taglibs</groupId>
-                <artifactId>standard</artifactId>
-                <version>${version.standard.taglibs}</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-logging</groupId>
-                <artifactId>commons-logging</artifactId>
-                <version>${version.commons.logging}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
     <dependencies>
 
-        <!-- Import the JPA API using the provided scope It is included in JBoss
-            AS 7 / EAP 6 -->
-        <dependency>
-            <groupId>org.hibernate.javax.persistence</groupId>
-            <artifactId>hibernate-jpa-2.0-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-
-	    <!-- JSR-303 (Bean Validation) Implementation -->
-	    <!-- Provides portable constraints such as @Email -->
-	    <!-- Hibernate Validator is shipped in JBoss AS 7 -->
-	    <dependency>
-    		<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.1.0.Final</version>
-    		<scope>provided</scope>
-    		<exclusions>
-      			<exclusion>
-          			<groupId>org.slf4j</groupId>
-          			<artifactId>slf4j-api</artifactId>
-        		</exclusion>
-      		</exclusions>
-		</dependency>
-
-	    <!-- Annotation processor that raising compilation errors whenever 
-	        constraint annotations are incorrectly used. -->
-	    <dependency>
-			<groupId>org.hibernate</groupId>
-      		<artifactId>hibernate-validator-annotation-processor</artifactId>
-      		<version>4.1.0.Final</version>
-      		<scope>provided</scope>
-		</dependency>
-
-	    <dependency>
-	    	<groupId>org.hibernate</groupId>
-	    	<artifactId>hibernate-entitymanager</artifactId>
-	    	<version>4.1.0.Final</version>
-	    	<scope>provided</scope>
-	    </dependency>
-
-        <!-- Import Spring dependencies, these are either from community or versions
-            certified in WFK2 -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-asm</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-beans</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-        </dependency>
+        <!-- Spring 3 dependencies -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-        </dependency>
-        <dependency>
-        	<groupId>org.springframework</groupId>
-        	<artifactId>spring-test</artifactId>
-        	<scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
+        <!-- Unable to locate Spring NamespaceHandler for XML schema namespace 
+            [http://www.springframework.org/schema/jdbc] -->
 
-        <!-- Other community dependencies -->
-        <dependency>
-            <groupId>aopalliance</groupId>
-            <artifactId>aopalliance</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>taglibs</groupId>
-            <artifactId>standard</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-        </dependency>
-
-	    <!-- Needed for running tests (you may also use TestNG) -->
-        <!-- junit.org cause framework is depracated -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
-
-
-		<!-- Add H2 dependency for embedded testing database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<version>1.3.165</version>
-			<scope>provided</scope>
-			
-		</dependency>
-
-		<!-- Add JSON dependency, specified in jboss-deployment-structure.xml -->
-	    <dependency>
-	      	<groupId>org.codehaus.jackson</groupId>
-	      	<artifactId>jackson-mapper-asl</artifactId>
-	      	<version>1.9.3</version>
-	      	<scope>provided</scope>
-	    </dependency>
-
-	    <dependency>
-	      	<groupId>org.codehaus.jackson</groupId>
-	      	<artifactId>jackson-core-asl</artifactId>
-	      	<version>1.9.3</version>
-	      	<scope>provided</scope>
-	    </dependency>
-
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>1.6.4</version>
-			<scope>provided</scope>
-		</dependency>
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		<!--  rest my dependencies -->
-	       <!-- spring security -->
+        <!-- spring security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
@@ -317,28 +69,146 @@
             <artifactId>spring-security-taglibs</artifactId>
             <version>3.1.3.RELEASE</version>
         </dependency>
-		      <dependency>
+
+
+
+        <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>3.2.0.RELEASE</version>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
         </dependency>
-        
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- cos do cache`a -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>3.2.1.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.2.1.RELEASE</version>
+        </dependency>
+
+
         <!-- JSTL -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-                <!-- taglibs 4 jsp -->
 
-		<!--  javax servlet, added cause of jetty -->
-   <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>2.5</version>
-        <scope>provided</scope>
-    </dependency>
-	
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>3.2.0.RELEASE</version>
+        </dependency>
+
+        <!-- selenium webdriver - wont work ? -->
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>2.31.0</version>
+        </dependency>
+
+        <!-- junit.org cause framework is depracated -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+
+        <!-- ehcache-core -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>2.6.5</version>
+        </dependency>
+
+
+        <!-- ANNOTATIONS / VALIDATIONS -->
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.0.0.GA</version>
+            <type>jar</type>
+        </dependency>
+
+        <!-- hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.2.0.Final</version>
+        </dependency>
+        <!-- DTDEntityResolver noClassDeffFoundError http://stackoverflow.com/questions/9134436/how-can-i-resolve-java-lang-classnotfoundexception-org-hibernate-util-dtdentity 
+            Per the Hibernate annotations 3.5 documentation:* Hibernate 3.5 and onward 
+            contains Hibernate Annotations. You should remove the dependency on hibernate-annotations, 
+            and remove the excludes from the hibernate-entitymanager dependency. Generally, 
+            you should not mix versions of dependent packages. lower ver damages ServieRegistry 
+            <dependency> <groupId>org.hibernate</groupId> <artifactId>hibernate-annotations</artifactId> 
+            <version>3.5.6-Final</version> </dependency> -->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>4.1.9.Final</version>
+        </dependency>
+
+        <!-- mysql connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.21</version>
+        </dependency>
+        <!-- H2 in mem 4 testing -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.170</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+
+        <!-- annotations -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.annotation</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+
+        <!-- some logs for tomcat -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.2</version>
+        </dependency>
+
+<!--  javax servlet, added cause of jetty -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>servlet-api</artifactId>
+    <version>3.0-alpha-1</version>
+</dependency>
+    
+
+
 <!--  PDF generating  -->
 <dependency>
     <groupId>com.itextpdf</groupId>
@@ -349,20 +219,20 @@
     <groupId>org.xhtmlrenderer</groupId>
     <artifactId>core-renderer</artifactId>
     <version>R8pre2</version>
-</dependency>	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+</dependency>
+
+
+
+
+
+
+
+
+
+
+
     </dependencies>
+
 
     <build>
         <finalName>spring-eap6-quickstart</finalName>
