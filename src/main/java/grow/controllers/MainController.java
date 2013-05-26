@@ -165,11 +165,20 @@ public class MainController {
 			)
 	{
 			
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-		boolean isUserAuth = auth.isAuthenticated();
+		String name = "no name";
+		boolean isUserAuth;
+		try {
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+			name = auth.getName();
+			isUserAuth = auth.isAuthenticated();
+		} catch (Exception e) {
+			isUserAuth = false;
+			System.out.println("/ main ctrl "+e.getCause() );
+		}
 		
-	      if (isUserAuth == true ){
+	     
+		
+		if (isUserAuth == true ){
 	    	  
 	    	  mav.setViewName("index2");
 	    	  Grow userGrow = new GrowDao().getGrowByUserName(name);
