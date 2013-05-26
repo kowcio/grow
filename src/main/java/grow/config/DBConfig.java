@@ -55,7 +55,7 @@ public class DBConfig {
 			Configuration configuration = new Configuration();
 			configuration.addAnnotatedClass(Post.class);
 			configuration.addAnnotatedClass(User.class);
-			configuration.configure("hibernate.cfg.xml");
+			configuration.configure("hibernatecr8.cfg.xml");
 	        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
 						configuration.getProperties()).buildServiceRegistry();
 	        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
