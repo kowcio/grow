@@ -1,4 +1,4 @@
-<!-- <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0">
+ <jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0">
    <deployment>
    	   <dependencies>
    	   		<module name="com.h2database.h2"/>
@@ -7,4 +7,4 @@
             <module name="org.slf4j"/>
    	   </dependencies>
    </deployment>
-</jboss-deployment-structure> -->
+</jboss-deployment-structure> 
