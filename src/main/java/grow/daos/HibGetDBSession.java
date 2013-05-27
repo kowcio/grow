@@ -116,6 +116,28 @@ public class HibGetDBSession{
 	
 	
 	
+	/**
+	 * Get a session factory with a specified hibernate.cfg.xml file 				<br />
+	 * hib4nodb.cfg.xml - file with ifexists=false and hbm2ddl create  		<br />
+	 * will create DB and table for first run if there is no DB.			<br />
+	 * 
+	 * @param hibcfgxmlFile
+	 * @return open session
+	 */
+	
+	public SessionFactory getAnnotatedSessionFactorysWithSpecificHibCfgXmlFile(String hibcfgxmlFile){
+		Configuration config = new Configuration();
+		config.addAnnotatedClass(Post.class);
+		config.addAnnotatedClass(User.class);
+        config.configure(hibcfgxmlFile);
+		SchemaExport schema = new SchemaExport(config);
+        schema.setOutputFile("blogSchema.sql");//saved in eclipse main folder
+        //schema.create(true, false);
+        serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();        
+        SessionFactory sessionFactory = config.buildSessionFactory(serviceRegistry);
+		return sessionFactory;
+	}
+	
 	
 	
 	

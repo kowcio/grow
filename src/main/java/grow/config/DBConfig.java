@@ -1,18 +1,16 @@
 package grow.config;
 
-import grow.daos.HashMachine;
-import grow.daos.PostDAO;
-import grow.daos.UserDAO;
-import grow.entities.Grow;
-import grow.entities.Post;
-import grow.entities.User;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
-
+import grow.entities.Post;
+import grow.entities.User;
+import grow.daos.HashMachine;
+import grow.daos.HibGetDBSession;
+import grow.daos.PostDAO;
+import grow.daos.UserDAO;
 /**
  * Class to configure database with basic new data
  * @author TalentLab1
@@ -20,118 +18,114 @@ import org.hibernate.service.ServiceRegistryBuilder;
  *
  */
 
-public class DBConfig {
+public class DBConfig implements ServletContextListener {
 
 
+	String hibfile = "hibernate.cfg.xml"; 
+	String hibfilecr8 = "hibernatecr8.cfg.xml";
 	/**
 	 * Method runned when app is initialized, check 
 	 * if (db connect = ok) 									<br />
-	 *		 	{		if {check records > 0 } nie dodawaj		<br />
-	 * 					else dodaj rekordy						<br />
+	 *		 	{		if {check records > 0 } don`t add		<br />
+	 * 					else add records						<br />
 	 *  		}												<br />
-	 *  else    { polacz sie z baza z opcja IFEXISTS=FALSE - automatycznie tworzy baze<br />
-	 *  		if {check records > 0 } nie dodawaj				<br />
-	 * 					else dodaj rekordy						<br />
+	 *  else    { connect with db with IFEXISTS=FALSE -auto create db<br />
+	 *  		if {check records > 0 } don`t add				<br />
+	 * 					else add								<br />
 	 *  		}												<br />
-	 * configured in dispatcher servlet as a bean				<br />
+	 * configured in package db.Config as servlet listener and in web.xml				<br />
 	 * 
 	 */
 	/*
 	 * The PostConstruct annotation is used on a method that needs to be executed after dependency injection
 	 *  is done to perform any initialization. This method MUST be invoked before the class is put into service.
-	 *  Wniosek - init method to cos innego niz ostConstruct, do post cosntructa trzeba sie odwalac albo go wstrzyknac.
 	 */
-	//@PostConstruct
-	public static void init(){
+	@Override
+	public void contextInitialized(ServletContextEvent arg0) {
 		
 	System.out.println("" +
 			"############   CREATING DATABASE FOR THE INITIAL RUN   ############ \n" +
 			"############   CREATING DATABASE FOR THE INITIAL RUN   ############ \n" +
 			"############   CREATING DATABASE FOR THE INITIAL RUN   ############ " +
-			"\n http://forum.springsource.org/archive/index.php/t-29874.html" +
-			"\n" );
-	
+			"\n http://forum.springsource.org/archive/index.php/t-29874.html" );
 	  
-		 boolean noDB = false;
-		 //dwa dbloki - brak pomylek z nazwa zmnienncyh
-		 if (noDB==false){
-		 	//default try to connect todefault database 
-			Configuration configuration = new Configuration();
-			configuration.addAnnotatedClass(Post.class);
-			configuration.addAnnotatedClass(Grow.class);
-			configuration.addAnnotatedClass(User.class);
-			configuration.configure("hibernate.cfg.xml");
-	        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
-						configuration.getProperties()).buildServiceRegistry();
-	        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	        sessionFactory.openSession();
-		 
-        //try to get any entities cause the db will be created by hibernate
-	        
+		boolean noDB = false;
+		//get basic sessionFact only if db is created 
+		HibGetDBSession hibs = new HibGetDBSession();
+		SessionFactory sf1 = hibs.getAnnotatedSessionFactorysWithSpecificHibCfgXmlFile(hibfile);
+		
+        //Get errors if session can actualy get something.
+	    
 	        PostDAO postdao = new PostDAO();
 	        int postNo = 1;
+	        
 	        try {
 				postNo = postdao.getAllPosts().size();
-			} catch (Exception e) {
-				e.printStackTrace();
-				//for checking when null while getting posts
-				noDB=true; 
+				if (postNo ==0 || postNo==3 ){						//if db is empty add initial posts
+					System.out.print("0 posts.");
+        			saveInitialDBData(sf1);
+				}
+			} catch (Exception e) {					//for checking when null while getting posts
+				//e.printStackTrace()	;				
+				noDB=true; 							//there is no db specified
+				System.out.print("No database or session creating error.");
 			}
-	        
-	        if ( postNo == 0 || noDB==true ) {
-	        	System.out.println("0 pos w bazie trzeba jakies dodac");
-	        	Post post1 = Post.getNewPost("Default Title 1", "Default Value 1");
-	        	postdao.savePost(post1);	
-	        	Post post2 = Post.getNewPost("Default Title 2", "Default Value 2");
-	        	postdao.savePost(post2);	
-	        	Post post3 = Post.getNewPost("Default Title 3", "Default Value 3");
-	        	postdao.savePost(post3);
-	        }else
-	        {
-	        	System.out.println("Istnieje "+postNo+ " posw bazie");
-	        }
-	        
-	        
-	 }//end if noDB == false	
-				
-	        	
+
+	        /*if database does not exists */
+		        
 	        if (noDB){
 	        			System.out.println(" NO DATABASE or sth like that ... creating new one.");
-	        			Configuration configuration = new Configuration();
-	        			configuration.addAnnotatedClass(Post.class);
-	        			configuration.addAnnotatedClass(Grow.class);
-	        			configuration.addAnnotatedClass(User.class);
-	        			configuration.configure("hibernatecr8.cfg.xml");
-	        	        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
-	        						configuration.getProperties()).buildServiceRegistry();
-	        	        SessionFactory sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-	        	        sessionFactory.openSession();				
-					
-				        
-						
-				        //adding posts to newly created db
-				        
-				        PostDAO postdao = new PostDAO();
-				   
-				        	System.out.println("No posts in DB. need to add some");
-				        	Post post1 = Post.getNewPost("Default Title 1", "Default Value 1");
-				        	postdao.savePost(post1);	
-				        	Post post2 = Post.getNewPost("Default Title 2", "Default Value 2");
-				        	postdao.savePost(post2);	
-				        	Post post3 = Post.getNewPost("Default Title 3", "Default Value 3");
-				        	postdao.savePost(post3);
-				     
-				        
-					
-			
-			}//end if database none exist
-	        
-	        
-	        
+	        			//create db while trying to connect
+	        			SessionFactory sf = hibs.getAnnotatedSessionFactorysWithSpecificHibCfgXmlFile(hibfilecr8);
+	        			//add initial posts
+	        			saveInitialDBData(sf);
+				}//end if database none exist
+	 }
 	
-	        
-	 }//end main
 	
+	
+	// METHODS 
+	
+	/**
+	 * Save initials posts , users to the database while creating it or inspecting if there is not enough information
+	 * inside it			<br />
+	 * @param sf - Session Factory for creating sessions inside methods and DAOs.
+	 */
+	
+	public String saveInitialDBData( SessionFactory sf){
+			saveSingleInitialPosts(sf);
+			saveSingleInitialAdminUser(sf);
+	return "OK";
+	}
+	
+	
+	
+	/**
+	 * Savs the initial Posts
+	 * @param sf - Session Factory
+	 * @return "ok"
+	 */
+	
+	public String saveSingleInitialPosts( SessionFactory sf){
+		
+    	try {
+			System.out.println ("Adding default posts.");
+    		PostDAO pdao = new PostDAO();
+			Post post1 = Post.getNewPost("Default Title 1", "Default Value 1");
+			pdao.savePost(post1,sf.openSession());	
+			Post post2 = Post.getNewPost("Default Title 2", "Default Value 2");
+			pdao.savePost(post2,sf.openSession());	
+			Post post3 = Post.getNewPost("Default Title 3", "Default Value 3");
+			pdao.savePost(post3,sf.openSession());
+		} catch (Exception e) {
+			//e.printStackTrace();
+			return "Could not add initial posts - blog.config.DBConfig error.";
+		}
+	return "OK";
+	}
+	
+	
+   	
 	/**
 	 * Savs the initial Users
 	 * @param sf - Session Factory
@@ -159,5 +153,35 @@ public class DBConfig {
 	return "OK";
 	}
 	
+	
+	
+	
 
+
+	@Override
+	public void contextDestroyed(ServletContextEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	public String getHibfile() {
+		return hibfile;
+	}
+
+
+/**
+ * set the hibernate file for DB	<br />
+ * hibernate.cfg.xml				<br />
+ * testhibernate.cfg.xml			<br />
+ * @param hibfile
+ */
+	public void setHibfile(String hibfile) {
+		this.hibfile = hibfile;
+	}
+
+	
+
+	
 }

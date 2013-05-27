@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 
+
 public class PostDAO {
 
 		/**
@@ -139,7 +140,36 @@ public class PostDAO {
 		}
 
 
-	
+		
+		/**
+		 * Method used in DBConfig for saving the Post object with provided opened session (taken from sessionFactory)
+		 * @param post
+		 * @param sessionProvided
+		 * @return "OK" or "NotOK"
+		 */
+		
+		public int savePost(Post post, Session sessionProvided){
+			HibGetDBSession fabrykaHibernejta = new HibGetDBSession();
+		   	try {
+		   		Session session = sessionProvided;
+				Transaction tx = session.beginTransaction();
+				post.toString();
+				post.saveCreationEditDate();
+				session.save(post);
+				tx.commit();
+				//logging
+				//List<String> ut = new Utils().getLoggedUsername();
+				//logger.info("User --"+ut.get(0)+"-- saved POST ID = "+post.getId());//after this data dispolays in lower line , why ?
+				
+				System.out.println("Post id = "+post.getId()+" edited !");
+				return post.getId();
+			} catch (Exception e) {
+				System.out.println("Error saving single posts - blog.config.DBConfig error. ");
+				 e.printStackTrace();
+					return 0;
+			}
+
+		}
 	
 	
 
