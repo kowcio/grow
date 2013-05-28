@@ -7,7 +7,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.junit.Assert;
 
 public abstract class AbstractHibernateDao {
 
@@ -18,9 +17,7 @@ public abstract class AbstractHibernateDao {
             Class<?> entityClass,
             SessionFactory sessionFactory) {
 //!- fajne testowanie>
-        Assert.assertNotNull(entityClass);
-        Assert.assertNotNull(sessionFactory);
-
+       
         this.entityClass = entityClass;
         this.sessionFactory = sessionFactory;
     }

@@ -117,29 +117,12 @@
             <artifactId>spring-expression</artifactId>
             <version>3.2.0.RELEASE</version>
         </dependency>
-
-        <!-- selenium webdriver - wont work ? -->
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>2.31.0</version>
-        </dependency>
-
-        <!-- junit.org cause framework is depracated -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
-
-        <!-- ehcache-core -->
-        <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache-core</artifactId>
-            <version>2.6.5</version>
-        </dependency>
-
+<dependency>
+    <groupId>commons-dbcp</groupId>
+    <artifactId>commons-dbcp</artifactId>
+    <version>20030825.184428</version>
+</dependency>
+            
 
         <!-- ANNOTATIONS / VALIDATIONS -->
 
