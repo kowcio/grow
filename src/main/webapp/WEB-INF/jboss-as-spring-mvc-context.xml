@@ -20,9 +20,9 @@
     <context:component-scan base-package="grow.controllers" />
     
 
-    <!--  DATABASE INIT CLASS WITH DB CONFIG     -->
+    <!--  DATABASE INIT CLASS WITH DB CONFIG    
      <bean name="DBConfig" class="grow.config.DBConfig" init-method="init" lazy-init="false"/>
-     
+      -->
         <!--  validator  -->
     <bean id="validator"
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
