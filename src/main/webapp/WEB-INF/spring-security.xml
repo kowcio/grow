@@ -82,10 +82,10 @@ class="org.springframework.security.crypto.password.StandardPasswordEncoder">
 
  <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" 
  destroy-method="close">
-        <beans:property name="driverClassName" value="org.hibernate.dialect.MySQLDialect" />
-        <beans:property name="url" value="jdbc:mysql://127.11.110.1:3306/worg" />
-        <beans:property name="username" value="adminFx2z12v" />
-        <beans:property name="password" value="Wamc3FrlKiXB" />
+        <beans:property name="driverClassName" value="org.hibernate.dialect.H2Dialect" />
+        <beans:property name="url" value="jdbc:h2:blogdb;AUTO_SERVER=TRUE;MVCC=TRUE;IFEXISTS=TRUE" />
+        <beans:property name="username" value="sa" />
+        <beans:property name="password" value="" />
    </beans:bean>
 
 

@@ -122,6 +122,17 @@
     <artifactId>commons-dbcp</artifactId>
     <version>20030825.184428</version>
 </dependency>
+            <dependency>
+    <groupId>commons-pool</groupId>
+    <artifactId>commons-pool</artifactId>
+    <version>20030825.183949</version>
+</dependency>
+            
+            
+            
+            
+            
+            
             
 
         <!-- ANNOTATIONS / VALIDATIONS -->
