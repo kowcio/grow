@@ -27,19 +27,20 @@
 	position:fixed!important;
 	z-index:12000;
     top:5%!important;
-    width:50%;
+    width:60%;
     max-width:50%;
+    overflow:visible;
     left:3%!important;
     margin:0px 0px 0px 0px !important;  
     opacity:0.9;  
 }
+
 /* for g to show lower*/
 #popHelpNoLoginG{
 	top:15%!important;
 }
 #popHelpNoLogin .popover-content .popover-inner{
-    position:fixed!important;
-    z-index:120000;
+    z-index:1200;
     right:10%!important;
 }
 

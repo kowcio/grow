@@ -28,8 +28,8 @@
             <form action="<c:url value='j_spring_security_check' />" method='post'>
                <input type='text' name='j_username' class="loginInputForm"/>
                <input type='password' name='j_password' class="loginInputForm"/>
-                <input name="submit" type="submit" value="Zaloguj" />
-                <input name="reset" type="reset" />                
+                <input name="submit" type="submit" value="Zaloguj" class="btn"/>
+                <input name="reset" type="reset"  class="btn"/>                
             </form>
             
             

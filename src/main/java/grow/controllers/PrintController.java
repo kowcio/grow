@@ -22,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.Document;
 import org.xhtmlrenderer.pdf.ITextRenderer;
@@ -41,30 +42,14 @@ public class PrintController {
 	 */
 	@RequestMapping(value="/print",method= RequestMethod.GET)
 	public ModelAndView printChart(
-			@ModelAttribute("user") User user,
-			@ModelAttribute("grow") Grow grow, 
-			Principal principal,
-			BindingResult result,
-			ModelAndView mav,
-			HttpServletRequest request
+			ModelAndView mav
 			)
 	{
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    String name = auth.getName(); //get logged in username
-		boolean isUserAuth = auth.isAuthenticated();
 		
 	    	  mav.setViewName("print");
-	    	  Grow userGrow = new GrowDao().getGrowByUserName(name);
-	    	  //add grow id to session 
-	    	  HttpSession session = request.getSession();
-	    	  session.setAttribute("growid",userGrow.getId()) ;
-	    	  mav.addObject("grow" , userGrow);
-	    	  
-	    	  
-	    	  
 	   
 	     	return mav;
-	} // end main index
+	} 
 	
 
 	

@@ -11,10 +11,10 @@
    
    <!--  TITLES  -->
    
-   <div id="goal_help_title"><font color="blue">    GOAL  </font></div>
-    <div id="reality_help_title"><font color="green">REALITY </font></div>   
-  <div id="options_help_title"><font color="orange"> OPTIONS (opportunities , obstacles)  </font></div>   
-  <div id="will_help_title"><font color="red"> WHAT I WILL DO ! ! </font></div>   
+  <div id="goal_help_title"><font color="blue">     <b>GOAL</b>  </font></div>
+  <div id="reality_help_title"><font color="green"> <b>REALITY</b> </font></div>   
+  <div id="options_help_title"><font color="orange"><b>OPTIONS (opportunities , obstacles)</b>  </font></div>   
+  <div id="will_help_title"><font color="red">      <b>WHAT I WILL DO ! !</b> </font></div>   
   
    
    

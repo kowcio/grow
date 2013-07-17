@@ -21,9 +21,10 @@
 
 <link href="<c:url value="/resources/css/all.css"/>" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<c:url value="/resources/js/jquery.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/jqueryui.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/skrypty.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/resources/js/bootstrap.js"/>"></script>
+
+<script type="text/javascript" src="<c:url value="/resources/js/jquery.cookie.js"/>"></script>
+
 <script type="text/javascript" src="<c:url value="/resources/js/skrypty.js"/>"></script>
 
     
@@ -57,6 +58,7 @@
  
  
  <sec:authorize access="isAuthenticated()" var="isAuthenticated" />
+ 
 <c:if test="${not isAuthenticated}">
  <jsp:include page="/WEB-INF/jsp/main/main4all.jsp"></jsp:include>
 </c:if>

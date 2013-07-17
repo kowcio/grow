@@ -5,7 +5,6 @@
    @import url("bootstrap.css");
    @import url("bootstrap-responsive.css");
    
-   @import url("jqueryui.css");
    
    @import url("header.css");
    
@@ -19,7 +18,7 @@
 
    @import url("popovers.css");
    
-   
+   @import url("glyphicons.css");
    
    /* PRINT */
    @import url("print.css");

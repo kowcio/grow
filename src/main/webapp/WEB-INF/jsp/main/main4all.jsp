@@ -18,18 +18,24 @@
           <h2>Develope Your GROW and thrive ! </h2>
           </div>
 
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS.
- A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
+<p class="lead">
+This is the main page when You can describe Your G.R.O.W. steps, print the chart and measure Your progress.</br>
+<h4><code class="text-center">Remember ! You can do it !</code></h4>
+ 
+<p class="text-info">* For not logged users the input data is stored locally (on Your computer) in cookies.</p> 
+ 
+ </p>
   
       
 <div id="sideBtns" class="sideBtns">      
 <!--  check out how to make it happen ? NAV MENU !!  -->
       <!--  HELP BUTTONS -->      
-      <a class="btn btn-large btn-info btn-help"   id="helpBtnMainMain" data-placement="left" data-toggle="popover" data-container= "body">  Grow help  </a><br /><br />
+      <a class="btn btn-large btn-info btn-help"   id="helpBtnMainMain" data-placement="left" data-toggle="popover" data-container= "body">  General help  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnG" id="helpBtnG" data-placement="left" data-toggle="popover" data-container= "body">  G  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnR" id="helpBtnR" data-placement="left" data-toggle="popover" data-container= "body">  R  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnO" id="helpBtnO" data-placement="left" data-toggle="popover" data-container= "body">  O  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnW" id="helpBtnW" data-placement="left" data-toggle="popover" data-container= "body">  W  </a><br /><br />
+      <a class="btn btn-large btn-info " href="${path}/print"> Print  </a>
 
 <script>
 //draggable test - TO DO
@@ -106,37 +112,46 @@ $(document).ready(function(){
       
       
       
-      
-      <!--  Form with fields inside carousel -->
-      
-      
 <form:form method="POST" action="${path}/growadd" modelAttribute="grow">
 
    <div id="sT_goal" class="sidesText">
    As You can see there are <span class="badge badge-success">4</span>  fields You will need to fill up to complete
-   Your first <span class="badge badge-info">G.R.O.W.</span> chart PRINT.
+   Your first <span class="badge badge-info">G.R.O.W.</span> chart and print it !
    <br /><br />
-   It will help You establish the goals, motives and ways to fulfill Your desires
+   They will help You establish the goals, motives and ways to fulfill Your desires, dreams
    and ideas.
    <br /><br />
-   To write down Your way to  <span class="badge badge-warning">thrive</span>  there is help button on the right side.
+   To write down Your way and  <span class="badge badge-warning">thrive</span>  
+   there are help buttons on the right.
    <br /><br />
-   This is the Part when You are describing Your GOAL.
-   <br /><br />
-   Use the Help button for info and arows for next step.
-   <br /><br />
-   Save - saves the chart.
+   <span class="badge badge-success">Print </span> button redirects to a print template.<br />
+   Just press ctrl + p .
    <br /><br />
    
    </div>
                                  
 <div class="item" id="g1">
-              <h1>Step first : Your GOAL</h1>
+              <h1>Step first : Your GOAL
+              </h1>
               <p class="lead">
               
               Here You have the space to describe Your GOAL.
                 <br /> Be precise, use the S.M.A.R.T. rules under help button.
-
+                
+                <!-- 
+                <a title="" data-toggle="tooltip" class="pull-right" 
+                href="#" data-original-title="Automatic saving is on." 
+                id="gTooltipHelp1">
+                <i class="gi-circle_question_mark " id="gTooltipHelp"></i>
+                </a>
+                 <script>
+                    $(document).ready( function() {
+                        $("#gTooltipHelp1").tooltip({});
+                    });
+                 </script>
+                  -->
+ </p>                
+    
             <form:textarea path="grow_g" class="growtext" rows="10" cols="150"/>
 
 </div>
@@ -145,8 +160,8 @@ $(document).ready(function(){
               <p class="lead">
               What is Your current reality ? Do not dream, be as much objective as possible.
               <br/>  Be honest.
+                   
                 </p>
-            
                      <form:textarea path="grow_r" class="growtext" rows="10" cols="150"/>
             
             
@@ -177,7 +192,6 @@ $(document).ready(function(){
 <input type="submit" id="submit" class="btn btn-large btn-success span5 offset3 saveBtn" value="Generate Chart" />
 </form:form>      
                             
-      <a class="btn btn-large btn-info" href="/Blog/print"> print  </a><br /><br />
       
       </div>
 
