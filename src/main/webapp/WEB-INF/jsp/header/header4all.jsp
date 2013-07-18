@@ -20,7 +20,7 @@
             
             
             <div id="greeting" class="brand">
-    Welcome Unnamed        
+   Welcome Unnamed        
             </div>  
             
              <!--  Login form - spring security -->
@@ -33,7 +33,6 @@
             </form>
             
             
-           
           </div>
         </div>
       </div>

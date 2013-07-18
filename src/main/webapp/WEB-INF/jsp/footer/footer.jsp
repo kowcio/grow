@@ -38,8 +38,7 @@
     
     
     
- 
-    <div id="checkVals" class="pull-right" style="position:fixed;bottom:0%;right:0%">Q</div>
+<div id="checkVals" class="pull-right" style="position:fixed;bottom:0%;right:0%">v0.91</div>
     
     
     

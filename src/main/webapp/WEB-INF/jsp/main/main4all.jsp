@@ -131,31 +131,34 @@ $(document).ready(function(){
    </div>
                                  
 <div class="item" id="g1">
-              <h1>Step first : Your GOAL
-              </h1>
-              <p class="lead">
-              
-              Here You have the space to describe Your GOAL.
-                <br /> Be precise, use the S.M.A.R.T. rules under help button.
-                
-                <!-- 
-                <a title="" data-toggle="tooltip" class="pull-right" 
-                href="#" data-original-title="Automatic saving is on." 
-                id="gTooltipHelp1">
-                <i class="gi-circle_question_mark " id="gTooltipHelp"></i>
-                </a>
-                 <script>
-                    $(document).ready( function() {
-                        $("#gTooltipHelp1").tooltip({});
-                    });
-                 </script>
-                  -->
- </p>                
-    
-            <form:textarea path="grow_g" class="growtext" rows="10" cols="150"/>
 
+<img src="${path }/resources/img/frames/pink_frame1.jpg" class="frame" />
+	<div class="inside_item">
+	   <div class="item_header">
+	              <h1>Step first : Your GOAL </h1>
+	              <p class="lead">
+	              Here You have the space to describe Your GOAL.
+	                <br /> Be precise, use the S.M.A.R.T. rules under help button.
+	               </p>     
+	                 <a title="" data-toggle="tooltip" class="pull-right" 
+	                href="#" data-original-title="Automatic saving is on." 
+	                id="gTooltipHelp1">
+	                <i class="gi-circle_question_mark " id="gTooqweqweqweqweqweqwewltipHelp"></i>
+	                </a>
+	                 <script>
+	                    $(document).ready( function() {
+	                        $("#gTooltipHelp1").tooltip({});
+	                    });
+	                 </script>
+        </div>	             
+	            
+<form:textarea path="grow_g" class="growtext" rows="10" cols="150"/>
+
+	</div>
 </div>
 <div class="item" id="g2">
+<img src="${path }/resources/img/frames/green_frame.jpg" class="frame" />
+    <div class="inside_item">
                <h1>Step second : Your REALITY</h1>
               <p class="lead">
               What is Your current reality ? Do not dream, be as much objective as possible.
@@ -165,9 +168,11 @@ $(document).ready(function(){
                      <form:textarea path="grow_r" class="growtext" rows="10" cols="150"/>
             
             
-          
+        </div>  
 </div>
 <div class="item" id="g3">
+<img src="${path }/resources/img/frames/blue_frame.jpg" class="frame" />
+    <div class="inside_item">
               <h1>Step third : Your Options </h1>
               <p class="lead">
               Think about Options / Opportunities / Obstacles , describe them, use whatever You can or have.
@@ -176,20 +181,24 @@ $(document).ready(function(){
                   <form:textarea path="grow_o" class="growtext" rows="10" cols="150"/>
         
          
-</div>
+</div></div>
 <div class="item" id="g4">
+<img src="${path }/resources/img/frames/yellow_frame1.jpg" class="frame" />
+    <div class="inside_item">
                 <h1>Last step : What Will You Do ? </h1>
               <p class="lead">
               Make a promise to Yourself about things You will do, make a list.
               The chart table (on print) will help You measure Your progress.
               </p>
               <form:textarea path="grow_w" class="growtext" rows="10" cols="150"/>
- </div>
+ </div></div>
         
      
     
               
+<!-- 
 <input type="submit" id="submit" class="btn btn-large btn-success span5 offset3 saveBtn" value="Generate Chart" />
+-->
 </form:form>      
                             
       

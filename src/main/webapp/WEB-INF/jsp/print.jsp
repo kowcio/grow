@@ -114,8 +114,6 @@ $(document).ready(function(){
 			<h2>Develop Your GROW and thrive !</h2>
 		</div>
 		<p class="lead">
-			Description variable from DB ?
-			<code>G.R.O.W.</code>
 		</p>
 
 
