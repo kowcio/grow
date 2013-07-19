@@ -28,20 +28,41 @@ This is the main page when You can describe Your G.R.O.W. steps, print the chart
   
       
 <div id="sideBtns" class="sideBtns">      
-<!--  check out how to make it happen ? NAV MENU !!  -->
-      <!--  HELP BUTTONS -->      
+
+      <!--  HELP BUTTONS -->     
+      <button class="btn btn-large btn-info" id="menu">MENU</button>
+<div id="menudiv" class="">
       <a class="btn btn-large btn-info btn-help"   id="helpBtnMainMain" data-placement="left" data-toggle="popover" data-container= "body">  General help  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnG" id="helpBtnG" data-placement="left" data-toggle="popover" data-container= "body">  G  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnR" id="helpBtnR" data-placement="left" data-toggle="popover" data-container= "body">  R  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnO" id="helpBtnO" data-placement="left" data-toggle="popover" data-container= "body">  O  </a><br /><br />
       <a class="btn btn-large btn-info btn-help helpBtnW" id="helpBtnW" data-placement="left" data-toggle="popover" data-container= "body">  W  </a><br /><br />
       <a class="btn btn-large btn-info " href="${path}/print"> Print  </a>
+</div>    
+
 
 <script>
-//draggable test - TO DO
+$(document).ready(function(){
+
+
+$("body").on("mouseenter", "#menu", function(event){
+	   $('#menudiv').stop(true,false).animate({opacity:1}, 1000);
+});
+$("body").on("mouseleave", "#menu", function(event){
+	   $('#menudiv').delay(2000).animate({opacity:0}, 2000);
+});
+
+$("body").on("mouseenter", "#menudiv", function(event){
+	   $('#menudiv').stop(true,false).animate({opacity:1}, 1000);
+}); 
+	
+$("body").on("mouseleave", "#menudiv", function(event){
+       $('#menudiv').delay(2000).animate({opacity:0}, 2000);
+}); 
 
 
 
+});
 
 //popovers for help
 $(document).ready(function(){
@@ -140,16 +161,7 @@ $(document).ready(function(){
 	              Here You have the space to describe Your GOAL.
 	                <br /> Be precise, use the S.M.A.R.T. rules under help button.
 	               </p>     
-	                 <a title="" data-toggle="tooltip" class="pull-right" 
-	                href="#" data-original-title="Automatic saving is on." 
-	                id="gTooltipHelp1">
-	                <i class="gi-circle_question_mark " id="gTooqweqweqweqweqweqwewltipHelp"></i>
-	                </a>
-	                 <script>
-	                    $(document).ready( function() {
-	                        $("#gTooltipHelp1").tooltip({});
-	                    });
-	                 </script>
+
         </div>	             
 	            
 <form:textarea path="grow_g" class="growtext" rows="10" cols="150"/>
@@ -192,9 +204,7 @@ $(document).ready(function(){
               </p>
               <form:textarea path="grow_w" class="growtext" rows="10" cols="150"/>
  </div></div>
-        
-     
-    
+   
               
 <!-- 
 <input type="submit" id="submit" class="btn btn-large btn-success span5 offset3 saveBtn" value="Generate Chart" />

@@ -96,6 +96,7 @@ $(document).ready(function(){
 	var cookieDomain 	= 	"";
 	var cookieName		=	"grow_cookie1";
 	var cookiePath 		= 	"/";
+	var cookieExpires	=	123456789;
 	var cookieVar = {				//define cookei with data for the chart
 			grow_g : "goal step",
 			grow_r : "reality step",
@@ -109,7 +110,7 @@ $(document).ready(function(){
 		console.log("we have no cookie");
 		//set the cookie 
 		$.cookie(cookieName, cookieVar  , {
-			   expires : 1,          //expires in 365 days
+			   expires : cookieExpires,          //expires in 365 days
 			   path    : cookiePath,   //The value of the path attribute of the cookie 
 			                           //(default:path page created the cookie  "/" for root/all pages).
 			   domain  : cookieDomain, //The value of the domain attribute of the cookie
@@ -126,7 +127,7 @@ $(document).ready(function(){
 
 	}
 	else{
-		console.log("we have a cookie already");
+		//console.log("we have a cookie already");
 		loadGrowFromCookie( $.cookie(cookieName ) );
 		$("#richAlert").html("Welcome back ! ");
 		$("#richAlert").fadeIn(2000);

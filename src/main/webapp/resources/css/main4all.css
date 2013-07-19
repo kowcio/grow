@@ -86,7 +86,12 @@
     
 
     
-    
+    #menudiv{
+    position:fixed;
+    margin-top:-45px;
+    opacity:0;
+    background-color:white;
+    }
     
     
     
